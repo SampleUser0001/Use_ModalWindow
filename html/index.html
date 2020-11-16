@@ -17,7 +17,7 @@
           border: solid 3px #dfe4ea;
           border-radius: 10px;
         }
-        #modal-btn {
+        .testButton {
           width:  600px;
           height: 200px;
           font-size: 24px;
@@ -53,12 +53,21 @@
         function closeModal(modalElement) {
             document.body.removeChild(modalElement);
         }
+        
+        function hoge_alert(){
+            alert('hogehoge');
+        }
     </script>
 </head>
 <body onload="init()">
     <input type="button"
-           id="modal-btn" 
-           value="モーダルウィンドウ起動"/>
+           id="modal-btn"
+           class="testButton"
+           value="モーダルウィンドウ起動"/><br>
+    <input type="button"
+           class="testButton"
+           value="alert起動"
+           onClick="hoge_alert()"/>
 
 </body>
 </html>
