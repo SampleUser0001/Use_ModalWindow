@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <style>
+        .modal {
+          position: fixed;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+        }
+        
+        .inner {
+          width: 100%;
+          height: 100%;
+          background-color: rgba(255, 255, 255, 0.9);
+          border: solid 3px #dfe4ea;
+          border-radius: 10px;
+        }
+        .testButton {
+          width:  600px;
+          height: 200px;
+          font-size: 24px;
+        }
+    </style>
+    <script type="text/javascript">
+        function init(){
+            document.getElementById('modal-btn').addEventListener('click', showModal);
+        }
+
+        function showModal() {
+            // モーダルウィンドウと中身の要素を生成・クラスを付与
+            const modalElement = document.createElement('div');
+            modalElement.classList.add('modal');
+            const innerElement = document.createElement('div');
+            innerElement.classList.add('inner');
+        
+        　　 // モーダルウィンドウに表示する要素を記述
+            innerElement.innerHTML = `
+                <p>モーダルウィンドウ</p>
+            `;
+        
+            // モーダルウィンドウに中身を配置
+            modalElement.appendChild(innerElement);
+            document.body.appendChild(modalElement);
+        
+            // 中身をクリックしたらモーダルウィンドウを閉じる
+            innerElement.addEventListener('click', () => {
+                closeModal(modalElement);
+            });
+        }
+
+        function closeModal(modalElement) {
+            document.body.removeChild(modalElement);
+        }
+        
+        function hoge_alert(){
+            alert('hogehoge');
+        }
+    </script>
+</head>
+<body onload="init()">
+    <input type="button"
+           id="modal-btn"
+           class="testButton"
+           value="モーダルウィンドウ起動"/><br>
+    <input type="button"
+           class="testButton"
+           value="alert起動"
+           onClick="hoge_alert()"/>
+
+</body>
+</html>
